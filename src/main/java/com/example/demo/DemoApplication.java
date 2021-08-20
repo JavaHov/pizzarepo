@@ -1,12 +1,11 @@
 package com.example.demo;
 
-import entities.Pizza;
+import com.example.demo.entities.Pizza;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import repositories.PizzaRepository;
+import com.example.demo.repositories.PizzaRepository;
 
 @SpringBootApplication
 
@@ -22,8 +21,11 @@ public class DemoApplication {
 
         return (args) -> {
 
-            if(pizzaRepository.count() == 0)
-                pizzaRepository.save(new Pizza(1L,"Hawaii", "Tomatsås,Ost,Skinka,Ananas", 80));
+            if(pizzaRepository.count() == 0) {
+                pizzaRepository.save(new Pizza(1L, "Hawaii", "Tomatsås,Ost,Skinka,Ananas", 80));
+                pizzaRepository.save(new Pizza(2L, "Napoli", "Tomatsås,Ost,Skinka,Lök,Curry", 85));
+                pizzaRepository.save(new Pizza(3L, "Quattro", "Tomatsås,Ost,Skinka,Räkor,Svamp", 85));
+            }
         };
 
     }
